@@ -46,6 +46,10 @@ file=$(jq -r '.params.file //empty' < $payload)
 pom_file=$(jq -r '.params.pom_file //empty' < $payload)
 version_file=$(jq -r '.params.version_file //empty' < $payload)
 
+files=$(jq -r '.params.files //empty' < $payload)
+classifiers=$(jq -r '.params.classifiers //empty' < $payload)
+types=$(jq -r '.params.types //empty' < $payload)
+
 sourceMavenOpts=$(jq -r '.source.maven_opts //empty' < $payload)
 sourceMavenConfig=$(jq -r '.source.maven_config //empty' < $payload)
 paramsMavenOpts=$(jq -r '.params.maven_opts //empty' < $payload)
@@ -158,6 +162,9 @@ args="$args -Dpackaging=$packaging"
 [ -n "$classifier" ] && args="$args -Dclassifier=$classifier"
 [ -n "$username" ]   && args="$args -Drepository.username=$username";
 [ -n "$password" ]   && args="$args -Drepository.password=$password";
+[ -n "$files" ]   && args="$args -Dfiles=$files";
+[ -n "$classifiers" ]   && args="$args -Dclassifiers=$classifiers";
+[ -n "$types" ]   && args="$args -Dtypes=$types";
 
 $resource_dir/mvnw deploy:deploy-file $args
 

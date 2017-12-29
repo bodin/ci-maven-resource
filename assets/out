@@ -19,6 +19,8 @@ fi
 
 cd $source
 
+echo "Custom Version of Maven Resource"
+
 # for jq
 PATH=/usr/local/bin:$PATH
 

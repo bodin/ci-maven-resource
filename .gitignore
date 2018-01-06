@@ -1,1 +1,7 @@
-itest/nexus/keystore.jks
+build
+bin
+.settings
+.gradle
+.classpath
+.project
+rebel.xml

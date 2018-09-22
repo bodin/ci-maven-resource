@@ -6,7 +6,6 @@
 Deploys and retrieve artifacts from a Maven Repository Manager.
 
 
-
 ## Source Configuration
 
 * `url`: *Required.* The location of the repository.
